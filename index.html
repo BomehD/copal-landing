@@ -3,227 +3,545 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CoPal – Connect Through What You Love</title>
-    <!-- Tailwind CSS CDN -->
+    <title>CoPal – Where Passion Meets Purpose</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Custom CSS to ensure Inter font is applied and for general overrides */
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            scroll-behavior: smooth;
         }
 
-        /* Keyframe for subtle pulse effect on button */
-        @keyframes pulse-once {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+        /* Enhanced animations */
+        @keyframes pulse-glow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 20px 10px rgba(20, 184, 166, 0.2); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
         }
 
-        .animate-pulse-once {
-            animation: pulse-once 1.5s ease-out 1;
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
         }
 
-        /* Keyframe for subtle bounce/float effect on feature cards */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Keyframe for subtle background animation in sections */
-        @keyframes subtle-fade-in {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes slide-in-up {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .animate-subtle-fade-in {
-            animation: subtle-fade-in 0.8s ease-out forwards;
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .float-gentle { animation: float-gentle 4s ease-in-out infinite; }
+        .slide-in-up { animation: slide-in-up 0.8s ease-out forwards; }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0891b2, #14b8a6, #0d9488, #0f766e);
+            background-size: 400% 400%;
+            animation: gradient-shift 6s ease infinite;
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-teal-50 text-gray-800 antialiased">
-
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white bg-opacity-95 backdrop-blur-sm shadow-md py-4 px-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-teal-600 tracking-tight">
-                CoPal<span class="text-amber-500">.</span>
-            </a>
-            <div class="space-x-4">
-                <a href="#key-features" class="text-gray-700 hover:text-teal-600 font-medium transition duration-200">Features</a>
-                <a href="#how-it-works" class="text-gray-700 hover:text-teal-600 font-medium transition duration-200">How It Works</a>
-                <!-- Hide "Join Beta" button on small screens to prevent conflict -->
-                <a href="#join-beta" class="hidden sm:inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300">
-                    Join Beta
-                </a>
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <header>
+        <nav class="fixed top-0 w-full z-50 glassmorphism shadow-lg">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <a href="#" class="text-3xl font-extrabold text-white tracking-tight">
+                            CoPal<span class="text-amber-300">.</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hidden lg:flex space-x-8">
+                        <a href="#platform" class="text-white hover:text-amber-300 font-medium transition duration-200">Platform</a>
+                        <a href="#community" class="text-white hover:text-amber-300 font-medium transition duration-200">Community</a>
+                        <a href="#impact" class="text-white hover:text-amber-300 font-medium transition duration-200">Impact</a>
+                        <a href="#join" class="text-white hover:text-amber-300 font-medium transition duration-200">Join</a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-amber-300 font-medium transition duration-200 hidden sm:block">Sign In</a>
+                        <a href="https://hyellow-w.web.app/" target="_blank" rel="noopener noreferrer" class="bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold py-2 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Header / Hero Section -->
-    <header class="relative overflow-hidden bg-gradient-to-br from-teal-500 to-blue-600 text-white py-20 px-4 md:py-28 text-center shadow-lg">
-        <!-- Abstract Gradient Composition Background -->
-        <div class="absolute inset-0 z-0 opacity-20">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <radialGradient id="gradient1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                        <stop offset="0%" stop-color="rgba(255,255,255,0.2)" />
-                        <stop offset="100%" stop-color="rgba(255,255,255,0)" />
-                    </radialGradient>
-                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="rgba(255,255,255,0.15)" />
-                        <stop offset="100%" stop-color="rgba(255,255,255,0)" />
-                    </linearGradient>
-                </defs>
-                <!-- Dynamic gradient shapes -->
-                <circle cx="20" cy="20" r="15" fill="url(#gradient1)" transform="translate(10,10) rotate(30)" />
-                <rect x="60" y="10" width="30" height="30" fill="url(#gradient2)" transform="translate(5,5) rotate(45)" />
-                <path d="M50 70 Q 70 80, 80 60 L 90 90 L 10 90 Z" fill="url(#gradient1)" transform="translate(0,-5)" />
-                <ellipse cx="25" cy="85" rx="20" ry="10" fill="url(#gradient2)" transform="rotate(-15 25 85)" />
-            </svg>
-        </div>
+        <section class="relative min-h-screen flex items-center justify-center gradient-bg text-white overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 w-32 h-32 bg-white rounded-full float-gentle"></div>
+                <div class="absolute top-40 right-32 w-24 h-24 bg-amber-300 rounded-full float-gentle" style="animation-delay: -1s;"></div>
+                <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-white rounded-full float-gentle" style="animation-delay: -2s;"></div>
+                <div class="absolute bottom-20 right-20 w-28 h-28 bg-amber-300 rounded-full float-gentle" style="animation-delay: -3s;"></div>
+            </div>
 
-        <div class="relative z-10 max-w-5xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-md">
-                Connect Through What You <span class="text-amber-300">Love</span>
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-light mb-10 opacity-95 leading-relaxed max-w-3xl mx-auto">
-                Discover meaningful connections based on shared passions — from tech to travel, art to entrepreneurship. CoPal helps you meet your kind of people.
-            </p>
-            <a href="https://hyellow-w.web.app/" target="_blank" rel="noopener noreferrer" class="cta-button inline-block bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold py-3 px-10 rounded-full shadow-xl transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-300 focus:ring-opacity-75 tracking-wide text-lg animate-pulse-once">
-                Try CoPal Beta
-            </a>
-        </div>
+            <div class="relative z-10 max-w-6xl mx-auto px-6 text-center slide-in-up">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                    Where Passion Meets
+                    <span class="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">Purpose</span>
+                </h1>
+                <p class="text-xl sm:text-2xl lg:text-3xl font-light mb-8 opacity-95 leading-relaxed max-w-4xl mx-auto">
+                    Connect with like-minded individuals who share your interests and ambitions. Turn conversations into collaborations, ideas into reality, and passion into purpose.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="https://hyellow-w.web.app/" target="_blank" rel="noopener noreferrer" class="pulse-glow bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold py-4 px-10 rounded-full shadow-2xl transform transition duration-300 text-lg">
+                        Start Connecting
+                    </a>
+                    <a href="#platform" class="glassmorphism hover:bg-white hover:bg-opacity-20 text-white font-semibold py-4 px-10 rounded-full shadow-xl transition duration-300 text-lg">
+                        Learn More
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold stat-number text-amber-300">Growing</div>
+                        <div class="text-sm opacity-80">Community</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold stat-number text-amber-300">Diverse</div>
+                        <div class="text-sm opacity-80">Interests</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold stat-number text-amber-300">Real</div>
+                        <div class="text-sm opacity-80">Connections</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </header>
 
-    <!-- What is CoPal? Section -->
-    <section class="py-20 px-4 max-w-5xl mx-auto bg-gradient-to-br from-white to-teal-50 border-2 border-teal-100 rounded-xl shadow-2xl mt-16 mb-12 animate-subtle-fade-in">
-        <h2 class="text-4xl sm:text-5xl font-bold text-teal-800 mb-8 text-center border-b-2 border-teal-300 pb-4">What is CoPal?</h2>
-        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-            CoPal is a new kind of social experience. Instead of random feeds or getting lost in the scroll, you’re shown a world of like-minded individuals who care about the same things you do. It’s authentic. It’s real. It’s connection with purpose.
-        </p>
-    </section>
-
-    <!-- Key Features Section -->
-    <section id="key-features" class="py-16 px-4 max-w-6xl mx-auto bg-gray-50 rounded-xl shadow-inner mb-12 animate-subtle-fade-in">
-        <h2 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-12 text-center">Key Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transform transition duration-300 hover:scale-105 hover:shadow-xl float-animation">
-                <div class="mb-4 text-teal-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+    <main>
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-6xl mx-auto text-center slide-in-up">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+                    More Than Social. <span class="text-teal-600">Meaningful</span>.
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-12">
+                    CoPal isn't about endless scrolling or superficial likes. We're building a space where genuine interests create genuine connections, where shared passions spark collaboration, and where every interaction has the potential to change your trajectory.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Authentic</h3>
+                        <p class="text-gray-600">Real people with real interests. No algorithms pushing content you don't care about.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Purposeful</h3>
+                        <p class="text-gray-600">Every connection has potential. Turn shared interests into collaborative projects and meaningful relationships.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Empowering</h3>
+                        <p class="text-gray-600">Find your collaborators, mentors, and co-creators. Together, accomplish what you couldn't alone.</p>
+                    </div>
                 </div>
-                <h3 class="font-semibold text-2xl text-gray-900 mb-3">Interest-Based Matching</h3>
-                <p class="text-gray-600">Connect with individuals who share your exact passions and hobbies, fostering truly relevant interactions.</p>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transform transition duration-300 hover:scale-105 hover:shadow-xl float-animation" style="animation-delay: 0.1s;">
-                <div class="mb-4 text-teal-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 7.6 4.7l1.9-5.7z"></path>
-                    </svg>
+        </section>
+
+        <section id="platform" class="py-24 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 slide-in-up">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                        Built for <span class="text-teal-600">Connection & Creation</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Every feature is designed with one goal: helping you find your people and build something meaningful together.
+                    </p>
                 </div>
-                <h3 class="font-semibold text-2xl text-gray-900 mb-3">Direct Collaboration</h3>
-                <p class="text-gray-600">Seamlessly chat, share ideas, and work together on projects directly within the CoPal platform.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transform transition duration-300 hover:scale-105 hover:shadow-xl float-animation" style="animation-delay: 0.2s;">
-                <div class="mb-4 text-teal-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="2" x2="12" y2="6"></line>
-                        <line x1="12" y1="18" x2="12" y2="22"></line>
-                        <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-                        <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-                        <line x1="2" y1="12" x2="6" y2="12"></line>
-                        <line x1="18" y1="12" x2="22" y2="12"></line>
-                        <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-                        <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
-                    </svg>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="feature-icon mb-6 text-teal-600">
+                            <svg class="h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Smart Discovery</h3>
+                        <p class="text-gray-600">Find people who share your exact interests and complement your goals. Quality connections over quantity.</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="feature-icon mb-6 text-purple-600">
+                            <svg class="h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Project Spaces</h3>
+                        <p class="text-gray-600">Dedicated environments for your collaborations with everything you need to plan, create, and succeed together.</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="feature-icon mb-6 text-amber-600">
+                            <svg class="h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Thriving Communities</h3>
+                        <p class="text-gray-600">Join vibrant spaces centered around your interests. Share knowledge, get feedback, and grow together.</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="feature-icon mb-6 text-green-600">
+                            <svg class="h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Knowledge Exchange</h3>
+                        <p class="text-gray-600">Teach what you know, learn what you need. Create a network of mutual growth and skill development.</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="feature-icon mb-6 text-blue-600">
+                            <svg class="h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Your Privacy Matters</h3>
+                        <p class="text-gray-600">Complete control over your data and connections. Share what you want, with whom you want, when you want.</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="feature-icon mb-6 text-rose-600">
+                            <svg class="h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Quality Over Quantity</h3>
+                        <p class="text-gray-600">Focus on building deeper relationships with people who truly matter to your journey and aspirations.</p>
+                    </div>
                 </div>
-                <h3 class="font-semibold text-2xl text-gray-900 mb-3">Vibrant Community Spaces</h3>
-                <p class="text-gray-600">Join diverse communities centered around common interests, fostering growth and shared learning.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why CoPal Matters Section -->
-    <section class="py-16 px-4 max-w-4xl mx-auto bg-white border border-gray-100 rounded-xl shadow-lg animate-subtle-fade-in mb-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="text-lg text-gray-700 leading-relaxed">
-                <h2 class="text-3xl sm:text-4xl font-bold text-teal-800 mb-6 text-center md:text-left">Why CoPal Matters</h2>
-                <p class="mb-4">Most platforms make it easy to post, but hard to actually connect with people who get you. CoPal flips the script. We believe interest-first connection leads to stronger communities, deeper friendships, and better collaboration.</p>
-                <p>Whether you're building something, learning something, or just want to talk with someone who gets your passion — CoPal is where your people are.</p>
+        <section id="community" class="py-24 px-6 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="slide-in-up">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-8">Built on Human Connection</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-teal-600 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-gray-900 mb-2">Find Your Tribe</h3>
+                                    <p class="text-gray-600">Our smart discovery system connects you with individuals based on shared passions, not just demographics.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-teal-600 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-gray-900 mb-2">Build Your Dream</h3>
+                                    <p class="text-gray-600">Collaborate with your new network. Start a project, launch a startup, or create something new together.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-teal-600 font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-gray-900 mb-2">A Space to Grow</h3>
+                                    <p class="text-gray-600">CoPal is designed to be a positive, inspiring environment where you can learn, teach, and grow without the noise.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-center md:justify-end">
-                <!-- Placeholder for an illustrative image or icon -->
-                <img src="https://placehold.co/450x300/e0f2f7/0d9488?text=Connect+with+Purpose" alt="Connect with Purpose Illustration" class="rounded-xl shadow-2xl border-4 border-teal-200 transform transition duration-500 hover:scale-[1.02] hover:shadow-3xl" />
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-16 px-4 bg-gray-50 max-w-4xl mx-auto rounded-xl shadow-lg mb-12 animate-subtle-fade-in">
-        <h2 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-10 text-center">How It Works</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-white rounded-lg shadow-md flex flex-col items-center text-center transform transition duration-300 hover:scale-[1.02] hover:shadow-xl border-t-4 border-teal-500 group">
-                <span class="flex-shrink-0 mb-4 text-3xl font-extrabold text-teal-600 group-hover:text-amber-500 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                    </svg>
-                </span>
-                <h3 class="font-semibold text-xl text-teal-800 mb-2">1. Select Interests</h3>
-                <p class="text-gray-600 text-sm">Tailor your profile by choosing specific interests for compatible matches.</p>
+        <section id="impact" class="py-24 px-6 bg-gray-50 text-center">
+            <div class="max-w-4xl mx-auto slide-in-up">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">The CoPal <span class="text-teal-600">Impact</span></h2>
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-12">
+                    Our goal is to be a catalyst for positive change. We believe that when great minds with shared passions connect, they can achieve incredible things.
+                </p>
+                <a href="#" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Read Our Stories
+                </a>
             </div>
-            <div class="p-6 bg-white rounded-lg shadow-md flex flex-col items-center text-center transform transition duration-300 hover:scale-[1.02] hover:shadow-xl border-t-4 border-teal-500 group" style="animation-delay: 0.1s;">
-                <span class="flex-shrink-0 mb-4 text-3xl font-extrabold text-teal-600 group-hover:text-amber-500 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                        <path d="M2 17l10 5 10-5"></path>
-                        <path d="M2 12l10 5 10-5"></path>
-                    </svg>
-                </span>
-                <h3 class="font-semibold text-xl text-teal-800 mb-2">2. Get Matched</h3>
-                <p class="text-gray-600 text-sm">Our intelligent algorithm connects you with others who share your passions.</p>
-            </div>
-            <div class="p-6 bg-white rounded-lg shadow-md flex flex-col items-center text-center transform transition duration-300 hover:scale-[1.02] hover:shadow-xl border-t-4 border-teal-500 group" style="animation-delay: 0.2s;">
-                <span class="flex-shrink-0 mb-4 text-3xl font-extrabold text-teal-600 group-hover:text-amber-500 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                </span>
-                <h3 class="font-semibold text-xl text-teal-800 mb-2">3. Connect & Create</h3>
-                <p class="text-gray-600 text-sm">Explore profiles, chat, collaborate, or co-create something amazing.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer / Call to Action -->
-    <footer id="join-beta" class="bg-gray-900 text-white py-20 px-4 text-center mt-16 rounded-t-xl shadow-inner">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6 drop-shadow-sm">Join the Beta</h2>
-        <p class="text-lg mb-10 opacity-85 leading-relaxed max-w-2xl mx-auto">
-            Be among the first to help shape a more meaningful social experience. No fluff — just people and passion.
-        </p>
-        <a href="https://hyellow-w.web.app/" target="_blank" rel="noopener noreferrer" class="cta-button inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-10 rounded-full shadow-xl transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-400 focus:ring-opacity-75 tracking-wide text-lg">
-            Join CoPal Beta Now
+        <section id="join" class="py-24 px-6 bg-white">
+            <div class="max-w-4xl mx-auto text-center slide-in-up">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+                    Ready to find your <span class="text-amber-400">CoPal</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                    Join our community of creators, innovators, and dreamers who are turning their passions into purpose.
+                </p>
+                <a href="https://hyellow-w.web.app/" target="_blank" rel="noopener noreferrer" class="pulse-glow bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold py-4 px-10 rounded-full shadow-2xl transform transition duration-300 text-lg">
+                    Get Started Today
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="fixed bottom-8 right-8 z-40">
+        <a href="https://hyellow-w.web.app/" target="_blank" rel="noopener noreferrer" class="bg-teal-600 hover:bg-teal-700 text-white p-4 rounded-full shadow-2xl transition duration-300 transform hover:scale-110 block pulse-glow" aria-label="Start connecting">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h2m-2-4a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2V4z"></path>
+            </svg>
         </a>
-        <div class="mt-12 text-gray-400 text-sm">
-            <p>Contact us: <a href="mailto:infocopal8.gmail.com" class="text-teal-300 hover:underline">infocopal8.gmail.com</a> | <a href="tel:+2330551017055" class="text-teal-300 hover:underline">+2330551017055</a></p>
-            <p>&copy; 2025. All Rights Reserved.</p>
+    </div>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="py-16 px-6 border-t border-gray-800">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                    <div class="md:col-span-2">
+                        <a href="#" class="text-4xl font-extrabold text-white tracking-tight mb-4 block">
+                            CoPal<span class="text-amber-400">.</span>
+                        </a>
+                        <p class="text-gray-300 text-lg mb-6 max-w-md">
+                            Where passion meets purpose. Connect with like-minded individuals and build something meaningful together.
+                        </p>
+                        
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition duration-300" aria-label="Twitter">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition duration-300" aria-label="LinkedIn">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition duration-300" aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-6">Platform</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#platform" class="text-gray-300 hover:text-white transition duration-200">Features</a></li>
+                            <li><a href="#community" class="text-gray-300 hover:text-white transition duration-200">Community</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Mobile App</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">API</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Integrations</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-6">Company</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">About</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Blog</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Careers</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Press</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 mb-4 md:mb-0">
+                        <p>&copy; 2025 CoPal. All Rights Reserved.</p>
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">Support</a>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                    <p>Questions? Email us at <a href="mailto:hello@copal.com" class="text-teal-400 hover:underline">hello@copal.com</a> or call <a href="tel:+2330551017055" class="text-teal-400 hover:underline">+233 055 101 7055</a></p>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navigation background on scroll
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const nav = document.querySelector('nav');
+            
+            if (scrollTop > 100) {
+                nav.style.backdropFilter = 'blur(20px)';
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.style.backdropFilter = 'blur(10px)';
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and animate them
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // Enhanced hover effects for feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                this.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+            });
+        });
+
+        // Add loading animation for the page
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Mobile menu toggle (for future mobile navigation)
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        }
+
+        // Keyboard navigation accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+    </script>
+
+    <style>
+        .keyboard-navigation *:focus {
+            outline: 2px solid #14b8a6 !important;
+            outline-offset: 2px !important;
+        }
+        
+        /* Ensure smooth transitions for all interactive elements */
+        a, button, .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .floating-action-button {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .fixed, .floating-action-button {
+                display: none !important;
+            }
+            
+            .gradient-bg {
+                background: #14b8a6 !important;
+                color: white !important;
+            }
+        }
+    </style>
 
 </body>
 </html>
